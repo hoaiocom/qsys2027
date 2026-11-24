@@ -39,7 +39,7 @@ Placeholders are shown on the page as grey dashed pills that read *To be announc
 | What | Where in `index.html` | How |
 |---|---|---|
 | Important dates | `<section id="dates">` | Replace `<span class="tba">To be announced</span>` with `<time datetime="2027-01-31">January 31, 2027</time>`. For an extension, keep the old date wrapped in `<del>…</del>`. |
-| Organising roles | `<section id="committee">` | Copy a `<li class="person">` block. Rename or delete the placeholder *Publicity Chairs* and *Publication Chair* groups. |
+| Organising roles | `<section id="committee">` | Copy a `<li class="person">` block to add a person, or a `<div class="committee-group">` block to add a role. |
 | Program Committee | `<div class="pc">` | Replace the placeholder with one `<li class="pc-member">` per member. |
 | Venue / Registration / Travel | `<section id="attend">` | Replace *To be announced.* with a short summary once CCGrid 2027 publishes details; keep the CCGrid link. |
 | Contact e-mail | footer | Replace the placeholder with a `mailto:` link. |
