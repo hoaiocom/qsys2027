@@ -69,8 +69,16 @@
          HERO
          ================================================================= -->
     <section class="hero">
+      <!-- Decorative quantum-circuit background (pure SVG + CSS, no images). -->
+      <svg class="hero-circuit" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+        <g class="qc-wires"><line x1="0" y1="70" x2="1200" y2="70"/><line x1="0" y1="140" x2="1200" y2="140"/><line x1="0" y1="210" x2="1200" y2="210"/><line x1="0" y1="280" x2="1200" y2="280"/><line x1="0" y1="350" x2="1200" y2="350"/></g>
+        <g class="qc-cnot"><line x1="205" y1="70" x2="205" y2="152"/><circle class="qc-ctrl" cx="205" cy="70" r="5"/><circle class="qc-targ" cx="205" cy="140" r="12"/><line x1="193" y1="140" x2="217" y2="140"/><line x1="275" y1="210" x2="275" y2="292"/><circle class="qc-ctrl" cx="275" cy="210" r="5"/><circle class="qc-targ" cx="275" cy="280" r="12"/><line x1="263" y1="280" x2="287" y2="280"/><line x1="965" y1="280" x2="965" y2="362"/><circle class="qc-ctrl" cx="965" cy="280" r="5"/><circle class="qc-targ" cx="965" cy="350" r="12"/><line x1="953" y1="350" x2="977" y2="350"/><line x1="1045" y1="140" x2="1045" y2="222"/><circle class="qc-ctrl" cx="1045" cy="140" r="5"/><circle class="qc-targ" cx="1045" cy="210" r="12"/><line x1="1033" y1="210" x2="1057" y2="210"/></g>
+        <g class="qc-gates"><g transform="translate(90 70)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">H</text></g><g transform="translate(90 140)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">H</text></g><g transform="translate(140 210)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">X</text></g><g transform="translate(120 280)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">R<tspan dy="4" font-size="10">z</tspan></text></g><g transform="translate(160 350)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">H</text></g><g transform="translate(335 70)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">T</text></g><g transform="translate(345 350)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">S</text></g><g transform="translate(900 140)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">S</text></g><g transform="translate(905 280)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">H</text></g><g transform="translate(1000 70)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">H</text></g><g transform="translate(1000 350)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">X</text></g><g transform="translate(1090 210)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><text y="5.5">R<tspan dy="4" font-size="10">y</tspan></text></g></g>
+        <g class="qc-meas"><g transform="translate(1150 70)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><path d="M-10 6a10 10 0 0 1 20 0"/><path d="M0 6l7-11"/></g><g transform="translate(1150 140)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><path d="M-10 6a10 10 0 0 1 20 0"/><path d="M0 6l7-11"/></g><g transform="translate(1150 210)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><path d="M-10 6a10 10 0 0 1 20 0"/><path d="M0 6l7-11"/></g><g transform="translate(1150 280)"><rect x="-18" y="-18" width="36" height="36" rx="7"/><path d="M-10 6a10 10 0 0 1 20 0"/><path d="M0 6l7-11"/></g></g>
+        <g class="qc-pulses"><circle class="qc-pulse" cx="-20" cy="70" r="4" style="animation-duration:11s;animation-delay:0s"/><circle class="qc-pulse is-alt" cx="-20" cy="140" r="4" style="animation-duration:13s;animation-delay:-4s"/><circle class="qc-pulse" cx="-20" cy="210" r="4" style="animation-duration:10s;animation-delay:-7s"/><circle class="qc-pulse" cx="-20" cy="280" r="4" style="animation-duration:14s;animation-delay:-2s"/><circle class="qc-pulse is-alt" cx="-20" cy="350" r="4" style="animation-duration:12s;animation-delay:-9s"/><circle class="qc-pulse is-alt" cx="-20" cy="210" r="4" style="animation-duration:15s;animation-delay:-12s"/><circle class="qc-pulse" cx="-20" cy="70" r="4" style="animation-duration:12s;animation-delay:-6s"/></g>
+      </svg>
       <div class="container hero-inner">
-        <p class="eyebrow-pill"><span class="dot" aria-hidden="true"></span><span>(In Conjunction with 27<sup>th</sup> IEEE CCGrid 2027)</span></p>
+        <p class="eyebrow-pill"><span class="dot" aria-hidden="true"></span><span>In Conjunction with 27<sup>th</sup> IEEE CCGrid 2027</span></p>
 
         <h1 class="hero-title">QSys 2027</h1>
         <p class="hero-subtitle">IEEE International Conference on Quantum Computing and Communication Systems</p>
@@ -467,7 +475,7 @@
           <span class="brand-text">QSys <span>2027</span></span>
         </a>
         <p>IEEE International Conference on Quantum Computing and Communication Systems</p>
-        <p class="footer-muted">May 24-27, 2027, Dallas&ndash;Fort Worth, Texas, USA<br>(In Conjunction with 27<sup>th</sup> IEEE CCGrid 2027)</p>
+        <p class="footer-muted">May 24-27, 2027, Dallas&ndash;Fort Worth, Texas, USA<br>In Conjunction with 27<sup>th</sup> IEEE CCGrid 2027</p>
       </div>
 
       <div>

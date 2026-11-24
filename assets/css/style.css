@@ -34,6 +34,12 @@
   --hero-bottom: #ffffff;
   --hero-pattern-opacity: .18;
 
+  --circuit-line: #b8c7da;
+  --circuit-gate-bg: #ffffff;
+  --circuit-gate-stroke: #9fb4cf;
+  --circuit-text: #3d5a80;
+  --circuit-opacity: .75;
+
   --shadow-sm: 0 1px 2px rgb(15 23 42 / .05);
   --shadow-md: 0 1px 2px rgb(15 23 42 / .04), 0 8px 24px -8px rgb(15 23 42 / .10);
   --shadow-lg: 0 2px 4px rgb(15 23 42 / .04), 0 18px 40px -12px rgb(15 23 42 / .16);
@@ -64,6 +70,12 @@
     --hero-top: #0f1829;
     --hero-bottom: #0a111e;
     --hero-pattern-opacity: .10;
+
+    --circuit-line: #26364f;
+    --circuit-gate-bg: #0f1a2c;
+    --circuit-gate-stroke: #2f4566;
+    --circuit-text: #7f9cc4;
+    --circuit-opacity: .9;
     --shadow-md: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px -8px rgb(0 0 0 / .5);
     --shadow-lg: 0 2px 4px rgb(0 0 0 / .3), 0 18px 40px -12px rgb(0 0 0 / .6);
     color-scheme: dark;
@@ -88,6 +100,12 @@
   --hero-top: #0f1829;
   --hero-bottom: #0a111e;
   --hero-pattern-opacity: .10;
+
+  --circuit-line: #26364f;
+  --circuit-gate-bg: #0f1a2c;
+  --circuit-gate-stroke: #2f4566;
+  --circuit-text: #7f9cc4;
+  --circuit-opacity: .9;
   --shadow-md: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px -8px rgb(0 0 0 / .5);
   --shadow-lg: 0 2px 4px rgb(0 0 0 / .3), 0 18px 40px -12px rgb(0 0 0 / .6);
   color-scheme: dark;
@@ -587,3 +605,58 @@ sup { font-size: .65em; line-height: 0; }
   .photo figcaption span { font-size: 12px; }
   .photo-credit { text-align: left; }
 }
+
+/* ---------- Hero: quantum circuit background ---------- */
+.hero-circuit {
+  position: absolute; inset: 0; z-index: -1;
+  width: 100%; height: 100%;
+  opacity: var(--circuit-opacity);
+  pointer-events: none;
+  /* keep the centre (title area) clear; show the circuit on the sides */
+  -webkit-mask-image: radial-gradient(ellipse 40% 72% at 50% 46%, transparent 42%, #000 85%);
+          mask-image: radial-gradient(ellipse 40% 72% at 50% 46%, transparent 42%, #000 85%);
+}
+.qc-wires line { stroke: var(--circuit-line); stroke-width: 1.2; }
+.qc-cnot line { stroke: var(--circuit-gate-stroke); stroke-width: 1.5; }
+.qc-cnot .qc-ctrl { fill: var(--circuit-gate-stroke); }
+.qc-cnot .qc-targ { fill: var(--circuit-gate-bg); stroke: var(--circuit-gate-stroke); stroke-width: 1.5; }
+.qc-gates rect, .qc-meas rect { fill: var(--circuit-gate-bg); stroke: var(--circuit-gate-stroke); stroke-width: 1.3; }
+.qc-gates text {
+  fill: var(--circuit-text); text-anchor: middle;
+  font-family: var(--font-heading); font-size: 15px; font-weight: 700;
+}
+.qc-meas path { fill: none; stroke: var(--circuit-text); stroke-width: 1.6; stroke-linecap: round; }
+.qc-pulse {
+  fill: var(--primary);
+  filter: drop-shadow(0 0 4px var(--primary));
+  animation-name: qc-travel; animation-timing-function: linear; animation-iteration-count: infinite;
+}
+.qc-pulse.is-alt { fill: var(--highlight); filter: drop-shadow(0 0 4px var(--highlight)); }
+@keyframes qc-travel {
+  0%   { transform: translateX(0);      opacity: 0; }
+  6%   { opacity: 1; }
+  94%  { opacity: 1; }
+  100% { transform: translateX(1240px); opacity: 0; }
+}
+
+/* Gentle entrance for the hero content */
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes bar-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 45%, transparent); } 80%, 100% { box-shadow: 0 0 0 9px transparent; } }
+
+.hero-inner > * { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
+.hero-inner > :nth-child(2) { animation-delay: .08s; }
+.hero-inner > :nth-child(3) { animation-delay: .16s; }
+.hero-inner > :nth-child(4) { animation-delay: .24s; }
+.hero-inner > :nth-child(5) { animation-delay: .32s; }
+.facts { animation: rise .7s .42s cubic-bezier(.2, .7, .2, 1) both; }
+.hero-title::after { transform-origin: center; animation: bar-grow .8s .35s cubic-bezier(.2, .7, .2, 1) both; }
+.eyebrow-pill .dot { animation: ping 2.4s ease-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-inner > *, .facts, .hero-title::after, .eyebrow-pill .dot { animation: none; }
+  .qc-pulses { display: none; }
+}
+/* On narrow screens the circuit would sit behind the text: leave it out. */
+@media (max-width: 760px) { .hero-circuit { display: none; } }
+@media (min-width: 761px) and (max-width: 1100px) { .hero-circuit { opacity: calc(var(--circuit-opacity) * .5); } }
