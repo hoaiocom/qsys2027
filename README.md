@@ -37,10 +37,9 @@ and visit <http://localhost:8000>.
 
 Everything is in `index.html`. Each section has an HTML comment explaining how to edit it, and placeholders appear on the page as grey "To be announced" pills.
 
-- **Important dates:** replace `<span class="tba">To be announced</span>` with `<time datetime="2027-01-31">January 31, 2027</time>`.
+- **Important dates:** edit the rows in `<section id="dates">`. Dates are written as `<time datetime="2027-01-31">January 31, 2027</time>`; three rows currently link to CCGrid 2027 ("Same as CCGrid 2027").
 - **Committee:** copy a `<li class="person">` block (organising team) or a `<li class="pc-member">` block (Program Committee).
 - **Venue, registration, travel:** replace "To be announced." once CCGrid 2027 publishes details.
-- **Contact:** replace the placeholder in the footer with the conference e-mail.
 
 ## Credits
 
