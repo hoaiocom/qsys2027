@@ -2,12 +2,11 @@
 
 Landing page for **QSys 2027: IEEE International Conference on Quantum Computing and Communication Systems**, May 24-27, 2027, Dallas–Fort Worth, Texas, USA (in conjunction with the 27th IEEE CCGrid 2027).
 
-It is a plain static site: no build step, no framework, no server-side code.
+It is a plain static site: HTML and CSS only. No JavaScript, no build step, no framework and no server-side code.
 
 ```
 index.html     all page content
 assets/css/    styles
-assets/js/     menu, theme toggle (optional; the page works without it)
 assets/img/    logo and venue photos
 ```
 
