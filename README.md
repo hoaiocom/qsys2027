@@ -1,48 +1,47 @@
 # QSys 2027 website
 
-Static landing page for **QSys 2027: IEEE International Conference on Quantum Computing and Communication Systems** (May 24-27, 2027, Dallas, USA; in conjunction with the 27th IEEE CCGrid 2027).
+Landing page for **QSys 2027: IEEE International Conference on Quantum Computing and Communication Systems**, May 24-27, 2027, Dallas–Fort Worth, Texas, USA (in conjunction with the 27th IEEE CCGrid 2027).
 
-There is no build step, framework or server-side code. It is plain HTML, CSS and a few lines of JavaScript.
+It is a plain static site: no build step, no framework, no server-side code.
 
 ```
-index.html            the whole page (all content lives here)
-assets/css/style.css  styles (light + dark theme)
-assets/js/main.js     mobile menu, theme toggle, active-section highlight
-assets/img/favicon.svg
-.nojekyll             tells GitHub Pages to serve files as-is
+index.html     all page content
+assets/css/    styles
+assets/js/     menu, theme toggle (optional; the page works without it)
+assets/img/    logo and venue photos
 ```
 
-All paths are relative, so the folder works unchanged at any URL, including
-`https://clouds.cis.unimelb.edu.au/qsys2027/`.
+## Self-hosting
 
-## Hosting
+All paths are relative, so the folder works at any URL.
 
-**On an existing web server (e.g. clouds.cis.unimelb.edu.au/qsys2027/)**
+**Any web server** (Apache, Nginx, a university web directory, etc.)
 
-Copy the folder contents into the `qsys2027/` web directory, replacing the old `index.html`
-(keep a backup of the old file first). You don't need to upload `README.md` or `.nojekyll`.
+Copy `index.html` and the `assets/` folder into the web directory, for example `public_html/qsys2027/`. Nothing else is needed.
 
-**On GitHub Pages**
+**GitHub Pages**
 
-Push to GitHub, then go to *Settings → Pages → Build and deployment*, choose *Deploy from a branch*,
-pick the branch and `/ (root)`, and save.
+In the repository, go to *Settings → Pages*, set *Source* to *Deploy from a branch*, select `main` and `/ (root)`, then save. The site appears at `https://<user>.github.io/<repo>/` within a minute or two.
 
-**Preview locally**
+**Local preview**
 
-Open `index.html` in a browser, or run `python3 -m http.server` in this folder and visit http://localhost:8000.
+Open `index.html` in a browser, or run:
 
-## Updating content
+```bash
+python3 -m http.server 8000
+```
 
-Everything is in `index.html`. Each section has an HTML comment explaining how to edit it.
-Placeholders are shown on the page as grey dashed pills that read *To be announced*.
+and visit <http://localhost:8000>.
 
-| What | Where in `index.html` | How |
-|---|---|---|
-| Important dates | `<section id="dates">` | Replace `<span class="tba">To be announced</span>` with `<time datetime="2027-01-31">January 31, 2027</time>`. For an extension, keep the old date wrapped in `<del>…</del>`. |
-| Organising roles | `<section id="committee">` | Copy a `<li class="person">` block to add a person, or a `<div class="committee-group">` block to add a role. |
-| Program Committee | `<div class="pc">` | Replace the placeholder with one `<li class="pc-member">` per member. |
-| Venue / Registration / Travel | `<section id="attend">` | Replace *To be announced.* with a short summary once CCGrid 2027 publishes details; keep the CCGrid link. |
-| Contact e-mail | footer | Replace the placeholder with a `mailto:` link. |
+## Editing
 
-Fonts (Plus Jakarta Sans for headings, Inter for body text) load from Google Fonts. If they can't load,
-the page falls back to the system font.
+Everything is in `index.html`. Each section has an HTML comment explaining how to edit it, and placeholders appear on the page as grey "To be announced" pills.
+
+- **Important dates:** replace `<span class="tba">To be announced</span>` with `<time datetime="2027-01-31">January 31, 2027</time>`.
+- **Committee:** copy a `<li class="person">` block (organising team) or a `<li class="pc-member">` block (Program Committee).
+- **Venue, registration, travel:** replace "To be announced." once CCGrid 2027 publishes details.
+- **Contact:** replace the placeholder in the footer with the conference e-mail.
+
+## Credits
+
+Venue photos by Carol M. Highsmith, Library of Congress (public domain), via Wikimedia Commons. Fonts: Plus Jakarta Sans and Inter (Google Fonts).
